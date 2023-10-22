@@ -1,0 +1,135 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --main-color: #009688;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+.parent {
+  position: relative;
+  padding: 20px;
+}
+.overlay {
+  position: absolute;
+  background-color: #13426ed4;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.start-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  padding: 15px 20px;
+  text-transform: capitalize;
+  background-color: #009688;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 767px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1170px) {
+  .container {
+    width: 1170px;
+  }
+}
+.player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--main-color);
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  font-size: 20px;
+  width: 60%;
+  margin: 0 auto 20px auto;
+}
+.player span {
+  font-weight: bold;
+  color: var(--main-color);
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .player {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+.game {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-template-rows: repeat(6, auto);
+  gap: 10px;
+}
+.game .box {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+.game .rotate {
+  transform: rotateY(-180deg);
+}
+.game .box .face {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border: 3px solid var(--main-color);
+}
+.game .box .back {
+  background-color: #ffea00;
+  text-align: center;
+  transform: rotateY(180deg);
+}
+.game .box .back img,
+.game .box .front img {
+  width: 100%;
+}
+@media (max-width: 767px) {
+  .game {
+    width: 100%;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+  }
+}
+.correct {
+  pointer-events: none;
+}

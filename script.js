@@ -13,7 +13,7 @@ let val_1 = 0,
   val_2 = 0,
   counter = 0,
   errorTry = 0,
-  finish = 17,
+  finish = 0,
   f = 0,
   l = 0;
 

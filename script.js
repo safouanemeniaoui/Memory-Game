@@ -17,7 +17,7 @@ let scoreTable = document.querySelector(".scores-list table tbody");
 let newArray = Array.from(boxs);
 let orderArray = [...newArray.keys()];
 let errorTry = 0,
-  finish = 17;
+  finish = 0;
 
 // Shuffle
 

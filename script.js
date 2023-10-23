@@ -1,5 +1,4 @@
 let game = document.querySelector(".game");
-let boxs = document.querySelectorAll(".box");
 let score = document.querySelector(".score span");
 let player = document.querySelector(".name span");
 let start = document.querySelector(".start-btn");
@@ -13,48 +12,36 @@ let scoresList = document.querySelector(".scores-list");
 let closeScoreList = document.querySelector(".btn .close");
 let clearScoreList = document.querySelector(".btn .clear");
 let scoreTable = document.querySelector(".scores-list table tbody");
-
-let newArray = Array.from(boxs);
-let orderArray = [...newArray.keys()];
+let inputNumber = document.querySelector("[name = 'number-of-boxes']");
+let inputName = document.querySelector("[name = 'player-name']");
+let form = document.querySelector(".form");
+let warning = document.querySelector(".form .warning");
 let errorTry = 0,
   finish = 0;
-
-// Shuffle
-
-shuffle(orderArray);
+let boxs, newArray, orderArray;
 
 // Start game
-
 start.onclick = function () {
-  overlay.style.display = "none";
-  start.style.display = "none";
-  let name = window.prompt("Enter your name");
-  player.innerHTML = name != "" && name != null ? name : "player";
-  startGame();
+  let numberBoxes = inputNumber.value;
+  let name = inputName.value;
+  if (checkNumber(numberBoxes)) {
+    overlay.style.display = "none";
+    form.style.display = "none";
+    player.innerHTML = name != "" && name != null ? name : "player";
+    for (let i = 1; i <= numberBoxes; i++) {
+      createBox(i);
+      createBox(i);
+    }
+    boxs = document.querySelectorAll(".box");
+    newArray = Array.from(boxs);
+    orderArray = [...newArray.keys()];
+    shuffle(orderArray);
+    mainGame(newArray, orderArray, numberBoxes);
+    startGame(newArray);
+  } else {
+    warning.style.display = "block";
+  }
 };
-
-// Main game function
-
-newArray.forEach((box, index) => {
-  box.style.order = orderArray[index];
-  box.onclick = function () {
-    box.classList.toggle("rotate");
-    let roratedBoxes = newArray.filter((el) => el.classList.contains("rotate"));
-    if (roratedBoxes.length === 2) {
-      stopClicking();
-      matched(roratedBoxes[0], roratedBoxes[1]);
-    }
-    if (finish == 18) {
-      finalScoreSpan.innerHTML = errorTry;
-      finalScore.style.display = "block";
-      overlay.style.display = "block";
-      saveLocal(player.innerHTML, errorTry);
-      setTimeout(() => {
-        location.reload();
-      }, 4000);
-    }
-  };
-});
 
 // Scores
 
@@ -79,6 +66,67 @@ clearScoreList.onclick = function () {
 
 // Functions
 
+function checkNumber(val) {
+  return val >= 2 && val <= 18 ? true : false;
+}
+
+function createBox(val) {
+  let myDiv = document.createElement("div");
+  let front = document.createElement("div");
+  let back = document.createElement("div");
+  let frontImage = document.createElement("img");
+  let backImage = document.createElement("img");
+
+  frontImage.src = "images/mark.png";
+  backImage.src = `images/tes${val}.png`;
+  myDiv.setAttribute("data-set", val);
+  myDiv.className = "box";
+  front.className = "face front";
+  back.className = "face back";
+
+  front.appendChild(frontImage);
+  back.appendChild(backImage);
+  myDiv.appendChild(front);
+  myDiv.appendChild(back);
+  game.appendChild(myDiv);
+}
+
+function mainGame(newArray, orderArray, numberBoxes) {
+  newArray.forEach((box, index) => {
+    box.style.order = orderArray[index];
+    box.onclick = function () {
+      box.classList.toggle("rotate");
+      let roratedBoxes = newArray.filter((el) =>
+        el.classList.contains("rotate")
+      );
+      if (roratedBoxes.length === 2) {
+        stopClicking();
+        matched(roratedBoxes[0], roratedBoxes[1]);
+      }
+      if (finish == numberBoxes) {
+        finalScoreSpan.innerHTML = errorTry;
+        finalScore.style.display = "block";
+        overlay.style.display = "block";
+        saveLocal(player.innerHTML, errorTry);
+        setTimeout(() => {
+          location.reload();
+        }, 4000);
+      }
+    };
+  });
+}
+
+function startGame(newArray) {
+  newArray.forEach((box) => {
+    box.classList.add("rotate");
+  });
+  setTimeout(function () {
+    newArray.forEach((box) => {
+      box.classList.remove("rotate");
+    });
+  }, 2000);
+}
+
 function matched(box_1, box_2) {
   if (box_1.dataset.set === box_2.dataset.set) {
     box_1.classList.remove("rotate");
@@ -102,17 +150,6 @@ function stopClicking() {
   setTimeout(function () {
     game.classList.remove("block-game");
   }, 1000);
-}
-
-function startGame() {
-  newArray.forEach((box) => {
-    box.classList.add("rotate");
-  });
-  setTimeout(function () {
-    newArray.forEach((box) => {
-      box.classList.remove("rotate");
-    });
-  }, 2000);
 }
 
 function shuffle(tab) {

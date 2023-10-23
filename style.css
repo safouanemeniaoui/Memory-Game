@@ -14,6 +14,8 @@ body {
 .parent {
   position: relative;
   padding: 20px;
+  width: 100%;
+  min-height: 100vh;
 }
 .overlay {
   position: absolute;
@@ -24,22 +26,59 @@ body {
   height: 100%;
   z-index: 1;
 }
-.start-btn {
+
+/* Start setup */
+
+.parent .form {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  padding: 15px 20px;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  gap: 10px;
+}
+.parent .form input {
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  caret-color: var(--main-color);
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 16px;
+  text-transform: capitalize;
+}
+.parent .form input::placeholder {
+  text-transform: capitalize;
+  font-size: 10px;
+}
+.form .warning {
+  text-transform: capitalize;
+  font-size: 14px;
+  color: #e91e63;
+  font-weight: 600;
+  display: none;
+}
+.form .start-btn {
+  padding: 10px 20px;
   text-transform: capitalize;
   background-color: #009688;
   border: none;
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
 }
+
+/* End setup */
+/* Start final score */
+
 .final-score {
   position: absolute;
   top: 40%;
@@ -63,6 +102,9 @@ body {
     font-size: 14px;
   }
 }
+
+/* End final score */
+
 .container {
   margin-top: 0;
   margin-left: auto;
@@ -86,6 +128,9 @@ body {
     width: 1170px;
   }
 }
+
+/* Start Player info */
+
 .player {
   display: flex;
   justify-content: space-between;
@@ -114,13 +159,17 @@ body {
     font-size: 14px;
   }
 }
+
+/* End Player info */
+/* Start Game */
+
 .game {
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  display: grid;
-  grid-template-columns: repeat(6, auto);
-  grid-template-rows: repeat(6, auto);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 10px;
 }
 @media (max-width: 767px) {
@@ -129,11 +178,16 @@ body {
   }
 }
 .game .box {
-  width: 100%;
+  width: calc(16% - 10px);
   aspect-ratio: 1;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 1s;
+}
+@media (max-width: 767px) {
+  .game .box {
+    width: calc(25% - 10px);
+  }
 }
 .game .rotate,
 .game .matched {
@@ -171,6 +225,7 @@ body {
   display: none;
 }
 
+/* End Game */
 /* Start Scores List */
 
 .scores-list {

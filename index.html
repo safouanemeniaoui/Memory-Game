@@ -14,7 +14,16 @@
   <body>
     <div class="parent">
       <div class="overlay"></div>
-      <button class="start-btn">start game</button>
+      <div class="form">
+        <input
+          type="text"
+          name="number-of-boxes"
+          placeholder="choose a pair number [2-18] "
+        />
+        <input type="text" name="player-name" placeholder="your name here" />
+        <p class="warning">please choose a number</p>
+        <button class="start-btn">start game</button>
+      </div>
       <div class="scores-list">
         <table>
           <thead>
@@ -38,228 +47,7 @@
           <span class="material-symbols-outlined score-icon"> dataset </span>
           <div class="score">wrong tries : <span>0</span></div>
         </div>
-        <div class="game">
-          <div class="box" data-set="1">
-            <div class="face front">
-              <img src="images/mark.png" alt="" />
-            </div>
-            <div class="face back">
-              <img src="images/tes1.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="1">
-            <div class="face front">
-              <img src="images/mark.png" alt="" />
-            </div>
-            <div class="face back">
-              <img src="images/tes1.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="2">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes2.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="2">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes2.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="3">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes3.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="3">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes3.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="4">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes4.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="4">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes4.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="5">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes5.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="5">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes5.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="6">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes6.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="6">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes6.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="7">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes7.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="7">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes7.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="8">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes8.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="8">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes8.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="9">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes9.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="9">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes9.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="10">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes10.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="10">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes10.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="11">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes11.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="11">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes11.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="12">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes12.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="12">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes12.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="13">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes13.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="13">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes13.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="14">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes14.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="14">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes14.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="15">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes15.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="15">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes15.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="16">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes16.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="16">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes16.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="17">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes17.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="17">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes17.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="18">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes18.png" alt="" />
-            </div>
-          </div>
-          <div class="box" data-set="18">
-            <div class="face front"><img src="images/mark.png" alt="" /></div>
-            <div class="face back">
-              <img src="images/tes18.png" alt="" />
-            </div>
-          </div>
-        </div>
+        <div class="game"></div>
       </div>
     </div>
     <audio

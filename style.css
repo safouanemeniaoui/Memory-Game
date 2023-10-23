@@ -98,6 +98,9 @@ body {
   color: var(--main-color);
   text-transform: uppercase;
 }
+.player .score-icon {
+  cursor: pointer;
+}
 @media (max-width: 767px) {
   .player {
     width: 100%;
@@ -115,6 +118,11 @@ body {
   grid-template-rows: repeat(6, auto);
   gap: 10px;
 }
+@media (max-width: 767px) {
+  .game {
+    margin-left: 0;
+  }
+}
 .game .box {
   width: 100%;
   aspect-ratio: 1;
@@ -122,8 +130,10 @@ body {
   transform-style: preserve-3d;
   transition: transform 1s;
 }
-.game .rotate {
+.game .rotate,
+.game .matched {
   transform: rotateY(-180deg);
+  pointer-events: none;
 }
 .game .box .face {
   width: 100%;
@@ -148,10 +158,86 @@ body {
     grid-template-rows: repeat(4, auto);
   }
 }
-.correct {
+.block-game {
   pointer-events: none;
 }
 .failure-aud,
 .success-aud {
   display: none;
 }
+
+/* Start Scores List */
+
+.scores-list {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e3e3e3;
+  padding: 10px;
+  z-index: -1;
+  opacity: 0;
+  transition: top 0.5s;
+}
+@media (max-width: 991px) {
+  .scores-list {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+}
+.show-score {
+  top: 15%;
+  z-index: 4;
+  opacity: 1;
+}
+.scores-list table {
+  border-spacing: 0;
+  width: 100%;
+}
+.scores-list table thead {
+  background-color: var(--main-color);
+  color: white;
+  padding: 10px;
+  text-transform: capitalize;
+}
+.scores-list table thead th {
+  text-align: start;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+.scores-list table thead th:not(last-of-type) {
+  border-right: 1px solid white;
+}
+.scores-list table tbody td {
+  padding-left: 15px;
+  border-bottom: 1px solid var(--main-color);
+  border-left: 1px solid var(--main-color);
+  text-transform: capitalize;
+}
+.scores-list table tbody td:last-of-type {
+  border-right: 1px solid var(--main-color);
+}
+.scores-list .btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scores-list button {
+  padding: 10px 20px;
+  background-color: #e91e63;
+  color: white;
+  text-transform: capitalize;
+  border: none;
+  margin-top: 10px;
+  border-radius: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.scores-list .btn .close {
+  color: black;
+  background-color: #ffea00;
+}
+/* End Scores List */

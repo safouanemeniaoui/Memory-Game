@@ -40,6 +40,24 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.final-score {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-transform: capitalize;
+  font-size: 30px;
+  font-weight: bold;
+  display: none;
+}
+.final-score span {
+  border-radius: 5px;
+  background-color: white;
+  padding: 5px;
+  color: var(--main-color);
+}
 .container {
   margin-top: 0;
   margin-left: auto;
@@ -132,4 +150,8 @@ body {
 }
 .correct {
   pointer-events: none;
+}
+.failure-aud,
+.success-aud {
+  display: none;
 }

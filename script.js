@@ -3,13 +3,17 @@ let score = document.querySelector(".score span");
 let player = document.querySelector(".name span");
 let start = document.querySelector(".start-btn");
 let overlay = document.querySelector(".overlay");
+let successAudio = document.querySelector(".success-aud");
+let failureAudio = document.querySelector(".failure-aud");
+let finalScore = document.querySelector(".final-score");
+let finalScoreSpan = document.querySelector(".final-score span");
 let newArray = Array.from(boxs);
 
 let val_1 = 0,
   val_2 = 0,
   counter = 0,
   errorTry = 0,
-  finish = 0,
+  finish = 17,
   f = 0,
   l = 0;
 
@@ -51,11 +55,12 @@ newArray.forEach((box, index) => {
       val_2 = box.dataset.set;
       if (val_2 == val_1 && f != l) {
         finish++;
-        console.log(finish);
+        successAudio.play();
         check(newArray, val_1);
         check(newArray, val_1);
       } else {
         score.innerHTML = ++errorTry;
+        failureAudio.play();
         newArray[f].classList.remove("correct");
         setTimeout(() => {
           newArray.forEach((bx) => {
@@ -66,7 +71,12 @@ newArray.forEach((box, index) => {
       counter = val_1 = val_2 = 0;
     }
     if (finish == 18) {
-      location.reload();
+      finalScoreSpan.innerHTML = errorTry;
+      finalScore.style.display = "block";
+      overlay.style.display = "block";
+      setTimeout(() => {
+        location.reload();
+      }, 4000);
     }
   };
 });

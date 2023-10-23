@@ -58,6 +58,11 @@ body {
   padding: 5px;
   color: var(--main-color);
 }
+@media (max-width: 767px) {
+  .final-score {
+    font-size: 14px;
+  }
+}
 .container {
   margin-top: 0;
   margin-left: auto;
@@ -180,9 +185,9 @@ body {
   opacity: 0;
   transition: top 0.5s;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   .scores-list {
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -208,6 +213,11 @@ body {
   padding: 10px 15px;
   font-size: 16px;
 }
+@media (max-width: 500px) {
+  .scores-list table thead th {
+    font-size: 12px;
+  }
+}
 .scores-list table thead th:not(last-of-type) {
   border-right: 1px solid white;
 }
@@ -216,6 +226,11 @@ body {
   border-bottom: 1px solid var(--main-color);
   border-left: 1px solid var(--main-color);
   text-transform: capitalize;
+}
+@media (max-width: 500px) {
+  .scores-list table tbody td {
+    font-size: 12px;
+  }
 }
 .scores-list table tbody td:last-of-type {
   border-right: 1px solid var(--main-color);
@@ -235,6 +250,12 @@ body {
   border-radius: 40px;
   font-weight: bold;
   cursor: pointer;
+}
+@media (max-width: 500px) {
+  .scores-list button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
 }
 .scores-list .btn .close {
   color: black;
